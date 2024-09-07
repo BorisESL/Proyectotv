@@ -9,11 +9,12 @@
 /* Variables de color */
 :root {
     --color-primary: #ff6b35;
-    --color-secondary: #4ecdc4;
+    --color-secondary: cyan;
+    ;
     --color-accent: #7b2cbf;
     --color-background: #f7fff7;
     --color-text: #2b2d42;
-    --color-black-transparent: rgba(0, 0, 0, 0.457);
+    --color-black-transparent: rgba(0, 0, 0, 0.651);
 }
 
 /* Contenedor principal */
@@ -22,7 +23,8 @@ body {
     color: var(--color-text);
     line-height: 1.6;
     margin: 0;
-    padding-top: 0; /* Espacio para el header fijo */
+    padding-top: 0;
+    /* Espacio para el header fijo */
 }
 
 /* Contenedor */
@@ -34,15 +36,17 @@ body {
 
 /* Encabezado */
 .header {
-    background-color: transparent; /* Cambiado a transparente */
+    background-color: transparent;
+    /* Cambiado a transparente */
     padding: 10px 0;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     z-index: 1000;
-    transition: background-color 0.3s ease; /* Añadido para suavizar la transición */
-     background-color: var(--color-black-transparent);
+    transition: background-color 0.3s ease;
+    /* Añadido para suavizar la transición */
+    background-color: var(--color-black-transparent);
 }
 
 /* Clase para cuando se hace scroll */
@@ -59,7 +63,7 @@ body {
 /* Logo */
 .logo {
     flex: 0 0 auto;
-    
+
 }
 
 .logo-img {
@@ -116,19 +120,23 @@ body {
     transition: 0.4s;
 }
 
-/* Hero/Banner Principal */
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
 /* Hero/Banner Principal */
 .hero {
     background: url(../img/tv.jpg) no-repeat center center/cover;
     color: #fff;
-    height: 100vh; /* Cambiado a 100vh para ocupar toda la altura de la ventana */
+    height: 78vh;
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
-    padding: 20px;
-    margin-top: -80px; /* Ajustado para compensar el padding-top del body */
-    position: relative;
+    padding: 0 20px;
+    overflow: hidden;
+
 }
 
 .hero::before {
@@ -144,26 +152,40 @@ body {
     pointer-events: none;
 }
 
-.hero h1,
+.hero .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1000px;
+    width: 100%;
+    z-index: 2;
+}
+
+.hero-content {
+    flex: 1;
+    padding: 0 20px;
+}
+
+.hero h1 {
+    font-size: 50px;
+    color: var(--color-secondary);
+    margin-bottom: 20px;
+}
+
 .hero p {
-    color: #fff; /* Asegura que el texto sea blanco */
-    position: relative;
-    z-index: 2; /* Asegura que el texto esté por encima del pseudo-elemento */
+    color: #fff;
+    margin-bottom: 20px;
 }
 
 .hero .btn {
-    background-color: var(--color-accent);
-    color: #fff;
+    background-color: var(--color-secondary);
     padding: 10px 20px;
     text-decoration: none;
     border-radius: 5px;
     display: inline-block;
     font-weight: bold;
     transition: background-color 0.3s ease;
-    position: relative;
-    z-index: 2; /* Asegura que el botón esté por encima del pseudo-elemento */
 }
-
 
 .hero .btn:hover {
     background-color: var(--color-primary);
@@ -172,14 +194,28 @@ body {
 /* Sección de Servicios */
 .services {
     padding: 40px 0;
-    background-color: #fff;
+    background-image: linear-gradient(
+  0deg,
+  hsl(226deg 69% 18%) 0%,
+  hsl(227deg 73% 19%) 9%,
+  hsl(226deg 77% 20%) 18%,
+  hsl(226deg 80% 21%) 27%,
+  hsl(227deg 79% 21%) 36%,
+  hsl(228deg 70% 19%) 45%,
+  hsl(229deg 59% 16%) 55%,
+  hsl(231deg 37% 12%) 64%,
+  hsl(230deg 27% 10%) 73%,
+  hsl(230deg 37% 9%) 82%,
+  hsl(229deg 50% 9%) 91%,
+  hsl(226deg 75% 8%) 100%
+);
     text-align: center;
 }
 
 .services h2 {
     margin-bottom: 20px;
     font-size: 36px;
-    color: var(--color-accent);
+    color: var(--color-secondary);
 }
 
 .service-cards {
@@ -189,17 +225,56 @@ body {
     gap: 20px;
 }
 
-.card {
-    background-color: #fff;
+.pricing-cards {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap; /* Para que las cards se ajusten en pantallas pequeñas */
+  }
+  
+  .card {
+    background-color: #141c29;
+    color: white;
+    border: 1px solid #1d3147;
+    border-radius: 20px;
     padding: 20px;
-    border-radius: 10px;
-    flex: 1;
-    min-width: 250px;
-    max-width: calc(33.333% - 20px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 350px; /* Ajustamos el tamaño de las cards */
     text-align: center;
-    border: 1px solid var(--color-secondary);
-}
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    margin: 10px; /* Añadimos un margen para evitar que queden muy pegadas */
+  }
+  
+  h2, h3 {
+    margin: 10px 0;
+  }
+  
+  button {
+    background: linear-gradient(to right, #fe5196, #7c3aed);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 15px; 
+    margin-top: 10px;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  ul li {
+    text-align: left;
+    padding: 5px 0;
+  }
+  
+  .card ul li::before {
+    content: '● ';
+    color: #00a0e3;
+  }
+  
+  
 
 /* Sección de Trabaja con Nosotros */
 .work-with-us {
@@ -348,9 +423,18 @@ body {
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
+    .hero .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-content {
+        margin-bottom: 20px;
+    }
+
     .hero h1 {
-        font-size: 28px;
+        font-size: 36px;
     }
 
     .hero p {
@@ -360,12 +444,6 @@ body {
     .hero .btn {
         display: block;
         width: 80%;
-        margin: 0 auto;
-    }
-
-    .services h2,
-    .work-with-us h2,
-    .contact h2 {
-        font-size: 28px;
+        margin: 20px auto 0;
     }
 }

@@ -9,8 +9,7 @@
 /* Variables de color */
 :root {
     --color-primary: #ff6b35;
-    --color-secondary: cyan;
-    ;
+    --color-secondary: rgb(9, 167, 240);
     --color-accent: #7b2cbf;
     --color-background: #f7fff7;
     --color-text: #2b2d42;
@@ -125,18 +124,18 @@ ul {
     padding: 0;
     margin: 0;
 }
+
 /* Hero/Banner Principal */
 .hero {
     background: url(../img/tv.jpg) no-repeat center center/cover;
     color: #fff;
-    height: 78vh;
+    height: 85vh; /* Cambiado a 100vh para cubrir toda la altura de la ventana */
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 0 20px;
     overflow: hidden;
-
 }
 
 .hero::before {
@@ -146,9 +145,14 @@ ul {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to top, rgba(0, 0, 0, 1.1), rgba(0, 0, 0, 0));
+    background: linear-gradient(to bottom, 
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.2) 50%,
+        rgba(0, 0, 0, 0.7) 75%,
+        rgba(0, 0, 0, 0.9) 90%,
+        rgba(0, 0, 0, 1) 100%
+    );
     z-index: 1;
-    opacity: 1;
     pointer-events: none;
 }
 
@@ -159,6 +163,7 @@ ul {
     max-width: 1000px;
     width: 100%;
     z-index: 2;
+    position: relative;
 }
 
 .hero-content {
@@ -168,7 +173,7 @@ ul {
 
 .hero h1 {
     font-size: 50px;
-    color: var(--color-secondary);
+    color: var(--color-background);
     margin-bottom: 20px;
 }
 
@@ -178,7 +183,8 @@ ul {
 }
 
 .hero .btn {
-    background-color: var(--color-secondary);
+    background: linear-gradient(to right, #fe5196, #7c3aed);
+    color: #fff;
     padding: 10px 20px;
     text-decoration: none;
     border-radius: 5px;
@@ -193,29 +199,31 @@ ul {
 
 /* Sección de Servicios */
 .services {
+    margin-top: -50px; /* Sube la sección de servicios ligeramente */
+    padding-top: 100px; /* Aumenta el padding superior para compensar */
+    background-image: linear-gradient(to bottom,
+        rgba(0, 0, 0, 1) 0%,
+        hsl(226deg 75% 8%) 10%,
+        hsl(229deg 50% 9%) 20%,
+        hsl(230deg 37% 9%) 30%,
+        hsl(230deg 27% 10%) 40%,
+        hsl(231deg 37% 12%) 50%,
+        hsl(229deg 59% 16%) 60%,
+        hsl(228deg 70% 19%) 70%,
+        hsl(227deg 79% 21%) 80%,
+        hsl(226deg 80% 21%) 90%,
+        hsl(226deg 77% 20%) 100%
+    );
     padding: 40px 0;
-    background-image: linear-gradient(
-  0deg,
-  hsl(226deg 69% 18%) 0%,
-  hsl(227deg 73% 19%) 9%,
-  hsl(226deg 77% 20%) 18%,
-  hsl(226deg 80% 21%) 27%,
-  hsl(227deg 79% 21%) 36%,
-  hsl(228deg 70% 19%) 45%,
-  hsl(229deg 59% 16%) 55%,
-  hsl(231deg 37% 12%) 64%,
-  hsl(230deg 27% 10%) 73%,
-  hsl(230deg 37% 9%) 82%,
-  hsl(229deg 50% 9%) 91%,
-  hsl(226deg 75% 8%) 100%
-);
     text-align: center;
 }
 
 .services h2 {
     margin-bottom: 20px;
     font-size: 36px;
-    color: var(--color-secondary);
+    background: linear-gradient(to right, #fe5196, #7c3aed);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .service-cards {
@@ -229,52 +237,56 @@ ul {
     display: flex;
     gap: 20px;
     justify-content: center;
-    flex-wrap: wrap; /* Para que las cards se ajusten en pantallas pequeñas */
-  }
-  
-  .card {
+    flex-wrap: wrap;
+    /* Para que las cards se ajusten en pantallas pequeñas */
+}
+
+.card {
     background-color: #141c29;
     color: white;
     border: 1px solid #1d3147;
     border-radius: 20px;
     padding: 20px;
-    width: 350px; /* Ajustamos el tamaño de las cards */
+    width: 350px;
+    /* Ajustamos el tamaño de las cards */
     text-align: center;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    margin: 10px; /* Añadimos un margen para evitar que queden muy pegadas */
-  }
-  
-  h2, h3 {
-    margin: 10px 0;
-  }
-  
-  button {
+    margin: 10px;
+    border: solid var(--color-secondary);
+}
+
+h2,h3, p {
+    margin: 10px 10px;
+    color: var(--color-background);
+}
+
+button {
     background: linear-gradient(to right, #fe5196, #7c3aed);
     color: white;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin-bottom: 15px; 
+    margin-bottom: 15px;
     margin-top: 10px;
-  }
-  
-  ul {
+}
+
+ul {
     list-style-type: none;
     padding: 0;
-  }
-  
-  ul li {
+}
+
+ul li {
     text-align: left;
     padding: 5px 0;
-  }
-  
-  .card ul li::before {
+}
+
+.card ul li::before {
     content: '● ';
-    color: #00a0e3;
-  }
-  
-  
+    color: var(--color-secondary);
+}
+
+
 
 /* Sección de Trabaja con Nosotros */
 .work-with-us {
@@ -320,7 +332,7 @@ ul {
 
 .reseller-card .btn,
 .card .btn {
-    background-color: var(--color-accent);
+    background: linear-gradient(to right, #fe5196, #7c3aed);
     color: #fff;
     padding: 10px 20px;
     text-decoration: none;

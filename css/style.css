@@ -22,8 +22,7 @@ body {
     color: var(--color-text);
     line-height: 1.6;
     margin: 0;
-    padding-top: 0;
-    /* Espacio para el header fijo */
+    padding-top: 0;/* Espacio para el header fijo */
 }
 
 /* Contenedor */
@@ -46,6 +45,10 @@ body {
     transition: background-color 0.3s ease;
     /* Añadido para suavizar la transición */
     background-color: var(--color-black-transparent);
+    box-shadow: 0 1px 3px var(--color-secondary), /* Sombra principal cian */
+                0 0 20px rgba(0, 195, 255, 0.5),  /* Efecto neón */
+                0 0 40px rgba(0, 187, 255, 0.3);
+    
 }
 
 /* Clase para cuando se hace scroll */
@@ -93,6 +96,7 @@ body {
     text-decoration: none;
     padding: 10px;
     transition: background-color 0.3s ease;
+    font-family: "Anta", sans-serif;
 }
 
 .nav-links a:hover {
@@ -109,7 +113,6 @@ body {
     width: 30px;
     height: 25px;
     background-color: transparent;
-    border: none;
 }
 
 .menu-icon .bar {
@@ -174,12 +177,26 @@ ul {
 .hero h1 {
     font-size: 50px;
     color: var(--color-background);
-    margin-bottom: 20px;
+    margin-bottom: 40px;
+    font-family: "Anta", sans-serif;
+  
 }
 
-.hero p {
-    color: #fff;
-    margin-bottom: 20px;
+.hero-dis {
+    color: var(--color-primary);
+    font-size: 24px;
+    
+}
+
+p {
+    color: var(--color-background);
+    font-family: "Anta", sans-serif;
+}
+
+.hero h2 {
+    color: var(--color-secondary);
+    font-size: 30px;
+    
 }
 
 .hero .btn {
@@ -258,6 +275,7 @@ ul {
 h2,h3, p {
     margin: 10px 10px;
     color: var(--color-background);
+    font-family: "Anta", sans-serif;
 }
 
 button {

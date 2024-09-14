@@ -103,7 +103,7 @@ body {
 }
 
 .nav-links a:hover {
-    background-color: var(--color-primary);
+    background: var(--color-primary);
     border-radius: 5px;
 }
 
@@ -168,6 +168,7 @@ ul {
     align-items: center;
     max-width: 1000px;
     width: 100%;
+    margin-top: 120px;
     z-index: 2;
     position: relative;
 }
@@ -180,7 +181,7 @@ ul {
 
 .hero h1 {
     font-size: 90px;
-    color: var(--color-secondary);
+    color: var(--color-primary);
     text-shadow:
         2px 2px 0px var(--color-text),
         /* Sombra derecha-abajo */
@@ -230,7 +231,16 @@ ul {
 }
 
 .hero-dis {
-    color: var(--color-background);
+    color: var(--color-primary);
+    text-shadow:
+        2px 2px 0px var(--color-text),
+        /* Sombra derecha-abajo */
+        -2px 2px 0px var(--color-text),
+        /* Sombra izquierda-abajo */
+        2px -2px 0px var(--color-text),
+        /* Sombra derecha-arriba */
+        -2px -2px 0px var(--color-text);
+    /* Sombra izquierda-arriba */
     font-size: 24px;
     margin-top: 50px;
     margin-bottom: 50px;
@@ -242,14 +252,22 @@ p {
 }
 
 .hero h2 {
-    color: var(--color-background);
+    color: var(--color-primary);
     font-size: 30px;
-
+    text-shadow:
+        2px 2px 0px var(--color-text),
+        /* Sombra derecha-abajo */
+        -2px 2px 0px var(--color-text),
+        /* Sombra izquierda-abajo */
+        2px -2px 0px var(--color-text),
+        /* Sombra derecha-arriba */
+        -2px -2px 0px var(--color-text);
+    /* Sombra izquierda-arriba */
 }
 
 .hero .btn {
-    background: linear-gradient(to right, #fe5196, #7c3aed);
-    color: #fff;
+    background: var(--color-primary);
+    color: var(--color-background);
     padding: 10px 20px;
     text-decoration: none;
     border-radius: 5px;
@@ -336,8 +354,8 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin-bottom: 15px;
-    margin-top: 10px;
+    margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 ul {

@@ -22,7 +22,8 @@ body {
     color: var(--color-text);
     line-height: 1.6;
     margin: 0;
-    padding-top: 0;/* Espacio para el header fijo */
+    padding-top: 0;
+    /* Espacio para el header fijo */
 }
 
 /* Contenedor */
@@ -45,10 +46,12 @@ body {
     transition: background-color 0.3s ease;
     /* Añadido para suavizar la transición */
     background-color: var(--color-black-transparent);
-    box-shadow: 0 1px 3px var(--color-secondary), /* Sombra principal cian */
-                0 0 20px rgba(0, 195, 255, 0.5),  /* Efecto neón */
-                0 0 40px rgba(0, 187, 255, 0.3);
-    
+    box-shadow: 0 1px 3px var(--color-secondary),
+        /* Sombra principal cian */
+        0 0 20px rgba(0, 195, 255, 0.5),
+        /* Efecto neón */
+        0 0 40px rgba(0, 187, 255, 0.3);
+
 }
 
 /* Clase para cuando se hace scroll */
@@ -132,7 +135,8 @@ ul {
 .hero {
     background: url(../img/tv.jpg) no-repeat center center/cover;
     color: #fff;
-    height: 85vh; /* Cambiado a 100vh para cubrir toda la altura de la ventana */
+    height: 85vh;
+    /* Cambiado a 100vh para cubrir toda la altura de la ventana */
     position: relative;
     display: flex;
     align-items: center;
@@ -148,13 +152,12 @@ ul {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom, 
-        rgba(0, 0, 0, 0) 0%,
-        rgba(0, 0, 0, 0.2) 50%,
-        rgba(0, 0, 0, 0.7) 75%,
-        rgba(0, 0, 0, 0.9) 90%,
-        rgba(0, 0, 0, 1) 100%
-    );
+    background: linear-gradient(to bottom,
+            rgba(0, 0, 0, 0) 0%,
+            rgba(0, 0, 0, 0.2) 50%,
+            rgba(0, 0, 0, 0.7) 75%,
+            rgba(0, 0, 0, 0.9) 90%,
+            rgba(0, 0, 0, 1) 100%);
     z-index: 1;
     pointer-events: none;
 }
@@ -172,20 +175,65 @@ ul {
 .hero-content {
     flex: 1;
     padding: 0 20px;
+    text-align: center;
 }
 
 .hero h1 {
-    font-size: 50px;
-    color: var(--color-background);
+    font-size: 90px;
+    color: var(--color-secondary);
+    text-shadow:
+        2px 2px 0px var(--color-text),
+        /* Sombra derecha-abajo */
+        -2px 2px 0px var(--color-text),
+        /* Sombra izquierda-abajo */
+        2px -2px 0px var(--color-text),
+        /* Sombra derecha-arriba */
+        -2px -2px 0px var(--color-text);
+    /* Sombra izquierda-arriba */
     margin-bottom: 40px;
     font-family: "Anta", sans-serif;
-  
+
+}
+
+.glass {
+    background: rgba(0, 151, 230, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(0, 151, 230, 0.3);
+    padding: 20px;
+    color: white;
+    text-align: center;
+}
+
+.glass h2 {
+    margin-bottom: 10px;
+}
+
+.glass .hero-dis {
+    margin-bottom: 50px;
+}
+
+.glass .btn {
+    background-color: #0097e6;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+.glass .btn:hover {
+    background-color: #0084c8;
 }
 
 .hero-dis {
-    color: var(--color-primary);
+    color: var(--color-background);
     font-size: 24px;
-    
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 
 p {
@@ -194,9 +242,9 @@ p {
 }
 
 .hero h2 {
-    color: var(--color-secondary);
+    color: var(--color-background);
     font-size: 30px;
-    
+
 }
 
 .hero .btn {
@@ -216,21 +264,22 @@ p {
 
 /* Sección de Servicios */
 .services {
-    margin-top: -50px; /* Sube la sección de servicios ligeramente */
-    padding-top: 100px; /* Aumenta el padding superior para compensar */
+    margin-top: -50px;
+    /* Sube la sección de servicios ligeramente */
+    padding-top: 100px;
+    /* Aumenta el padding superior para compensar */
     background-image: linear-gradient(to bottom,
-        rgba(0, 0, 0, 1) 0%,
-        hsl(226deg 75% 8%) 10%,
-        hsl(229deg 50% 9%) 20%,
-        hsl(230deg 37% 9%) 30%,
-        hsl(230deg 27% 10%) 40%,
-        hsl(231deg 37% 12%) 50%,
-        hsl(229deg 59% 16%) 60%,
-        hsl(228deg 70% 19%) 70%,
-        hsl(227deg 79% 21%) 80%,
-        hsl(226deg 80% 21%) 90%,
-        hsl(226deg 77% 20%) 100%
-    );
+            rgba(0, 0, 0, 1) 0%,
+            hsl(226deg 75% 8%) 10%,
+            hsl(229deg 50% 9%) 20%,
+            hsl(230deg 37% 9%) 30%,
+            hsl(230deg 27% 10%) 40%,
+            hsl(231deg 37% 12%) 50%,
+            hsl(229deg 59% 16%) 60%,
+            hsl(228deg 70% 19%) 70%,
+            hsl(227deg 79% 21%) 80%,
+            hsl(226deg 80% 21%) 90%,
+            hsl(226deg 77% 20%) 100%);
     padding: 40px 0;
     text-align: center;
 }
@@ -272,7 +321,9 @@ p {
     border: solid var(--color-secondary);
 }
 
-h2,h3, p {
+h2,
+h3,
+p {
     margin: 10px 10px;
     color: var(--color-background);
     font-family: "Anta", sans-serif;

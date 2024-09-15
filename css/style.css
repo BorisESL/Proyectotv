@@ -324,15 +324,64 @@ p {
 .card {
     background-color: #141c29;
     color: white;
-    border: 1px solid #1d3147;
     border-radius: 20px;
     padding: 20px;
     width: 350px;
-    /* Ajustamos el tamaño de las cards */
     text-align: center;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     margin: 10px;
-    border: solid var(--color-secondary);
+    position: relative;
+    overflow: hidden;
+    border: 2px solid var(--color-secondary);
+    transition: border 0.3s ease, transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(
+        transparent,
+        var(--color-secondary),
+        var(--color-accent),
+        transparent 30%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.card::after {
+    content: '';
+    position: absolute;
+    inset: 3px;
+    background: #141c29;
+    border-radius: 16px;
+    z-index: 0;
+}
+
+.card:hover {
+    transform: translateY(-15px); 
+    box-shadow: 4px 8px 12px var(--color-accent);
+    border-color: transparent;
+}
+
+.card:hover::before {
+    opacity: 1;
+    animation: rotate 4s linear infinite;
+}
+
+.card > * {
+    position: relative;
+    z-index: 1;
+}
+
+@keyframes rotate {
+    100% {
+        transform: rotate(1turn);
+    }
 }
 
 

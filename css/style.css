@@ -226,10 +226,6 @@ ul {
     transition: background-color 0.3s ease;
 }
 
-.glass .btn:hover {
-    background-color: #0084c8;
-}
-
 .hero-dis {
     color: var(--color-primary);
     text-shadow:
@@ -277,7 +273,7 @@ p {
 }
 
 .hero .btn:hover {
-    background-color: var(--color-primary);
+    background: linear-gradient(to right, #fe5196, #7c3aed);
 }
 
 /* Sección de Servicios */
@@ -338,6 +334,7 @@ p {
     margin: 10px;
     border: solid var(--color-secondary);
 }
+
 
 h2,
 h3,

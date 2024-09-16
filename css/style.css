@@ -419,7 +419,32 @@ ul li {
     color: var(--color-secondary);
 }
 
+/*Sección información*/
 
+.movies {
+    padding: 50px 0 150px 0;
+}
+
+.movies h2 {
+    font-size: 25px;
+    color: var(--color-accent);
+    margin-bottom: 20px;
+}
+
+.swiper {
+    width: 100%;
+}
+
+.swiper-slide {
+    background-position: center;
+    background-size: cover;
+    width: 250px;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+}
 
 /* Sección de Trabaja con Nosotros */
 .work-with-us {
@@ -590,5 +615,12 @@ ul li {
         display: block;
         width: 80%;
         margin: 20px auto 0;
+    }
+}
+
+@media(max-width:991px) {
+
+    .movies {
+        padding: 30px;
     }
 }

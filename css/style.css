@@ -3,7 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Anta', sans-serif;
 }
 
 /* Variables de color */
@@ -294,7 +294,8 @@ p {
             hsl(226deg 77% 20%) 100%);
     padding: 40px 0;
     text-align: center;
-    margin-bottom: 0; /* Asegura que no haya margen inferior */
+    margin-bottom: 0;
+    /* Asegura que no haya margen inferior */
 }
 
 .services h2 {
@@ -335,6 +336,14 @@ p {
     transition: border 0.3s ease, transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
 }
 
+.gradient {
+    background: linear-gradient(to right, #fe5196, #7c3aed);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+
 .card::before {
     content: '';
     position: absolute;
@@ -342,12 +351,10 @@ p {
     left: -50%;
     width: 200%;
     height: 200%;
-    background: conic-gradient(
-        transparent,
-        var(--color-secondary),
-        var(--color-accent),
-        transparent 30%
-    );
+    background: conic-gradient(transparent,
+            var(--color-secondary),
+            var(--color-accent),
+            transparent 30%);
     opacity: 0;
     transition: opacity 0.3s ease;
 }
@@ -362,7 +369,7 @@ p {
 }
 
 .card:hover {
-    transform: translateY(-15px); 
+    transform: translateY(-15px);
     box-shadow: 4px 8px 12px var(--color-accent);
     border-color: transparent;
 }
@@ -372,7 +379,7 @@ p {
     animation: rotate 4s linear infinite;
 }
 
-.card > * {
+.card>* {
     position: relative;
     z-index: 1;
 }
@@ -421,7 +428,7 @@ ul li {
 /*Sección información*/
 
 .movies-section {
-    min-height: 100vh;
+    min-height: 90vh;
     background: linear-gradient(180deg, hsl(226deg 77% 20%), #4a0e78);
     width: 100%;
     padding: 40px 0;
@@ -442,7 +449,7 @@ ul li {
     font-size: 36px;
     text-align: center;
     color: var(--color-background);
-    margin-bottom: 30px;
+    
 }
 
 .content-description {
@@ -461,21 +468,28 @@ ul li {
     font-family: "Anta", sans-serif;
 }
 
-
+.information {
+    display: flex;                     /* Usa flexbox para alinear elementos */
+    justify-content: space-between;   /* Espacio entre ambos elementos */
+    align-items: center;              /* Centra verticalmente */
+    gap: 20px;                        /* Espacio entre la animación y el texto */
+   
+}
 
 
 /* Ajusta el estilo del Swiper si es necesario */
 .swiper {
     width: 100%;
     max-width: 1000px;
-    margin-top: 50px;
+    
 }
 
 .swiper-slide {
     background-position: center;
     background-size: cover;
     width: 250px;
-    height: 375px; /* Ajusta esto según el aspecto que desees para tus carátulas */
+    height: 375px;
+    /* Ajusta esto según el aspecto que desees para tus carátulas */
 }
 
 .swiper-slide img {
@@ -535,7 +549,7 @@ ul li {
     text-decoration: none;
     border-radius: 5px;
     display: inline-block;
-    margin-top: 10px;
+    margin-top: 20px;
     font-weight: bold;
     transition: background-color 0.3s ease;
 }

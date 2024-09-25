@@ -5,8 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stream TvFast</title>
+    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Anta&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./css/style.css">
 </head>
 
@@ -79,7 +83,7 @@
             <div class="service-cards">
                 <div class="card animated-border">
                     <h2>1 Mes</h2>
-                    <h3>$7.000</h3>
+                    <h3>$7.000 CLP - $8 USD</h3>
                     <p>Valor Mensual</p>
                     <a href="https://wa.me/56994940840" target="_blank">
                         <button>SOLICITA PRUEBA GRATIS</button>
@@ -95,7 +99,7 @@
                 </div>
                 <div class="card animated-border">
                     <h2>2 Meses</h2>
-                    <h3>$10.000</h3>
+                    <h3>$10.000 CLP - $11 USD</h3>
                     <p>Valor Mensual</p>
                     <a href="https://wa.me/56994940840" target="_blank">
                         <button>SOLICITA PRUEBA GRATIS</button>
@@ -111,7 +115,7 @@
                 </div>
                 <div class="card animated-border">
                     <h2>3 Meses</h2>
-                    <h3>$14.000</h3>
+                    <h3>$14.000 CLP - $16 USD</h3>
                     <p>Valor Mensual</p>
                     <a href="https://wa.me/56994940840" target="_blank">
                         <button>SOLICITA PRUEBA GRATIS</button>
@@ -127,7 +131,7 @@
                 </div>
                 <div class="card animated-border">
                     <h2>4 meses</h2>
-                    <h3>$21.000</h3>
+                    <h3>$21.000 CLP - $23 USD</h3>
                     <p>Valor Mensual</p>
                     <a href="https://wa.me/56994940840" target="_blank">
                         <button>SOLICITA PRUEBA GRATIS</button>
@@ -143,7 +147,7 @@
                 </div>
                 <div class="card animated-border">
                     <h2>8 meses</h2>
-                    <h3>$42.000</h3>
+                    <h3>$42.000 CLP - $46 USD</h3>
                     <p>Valor Mensual</p>
                     <a href="https://wa.me/56994940840" target="_blank">
                         <button>SOLICITA PRUEBA GRATIS</button>
@@ -159,7 +163,7 @@
                 </div>
                 <div class="card animated-border">
                     <h2>1 año</h2>
-                    <h3>$63.000</h3>
+                    <h3>$63.000 CLP - $69 USD</h3>
                     <p>Valor Mensual</p>
                     <a href="https://wa.me/56994940840" target="_blank">
                         <button>SOLICITA PRUEBA GRATIS</button>
@@ -179,10 +183,16 @@
     <!-- Sección informacion -->
     <section class="movies-section">
         <div class="movies container">
-
             <h2>Películas y Series</h2>
+            <div class="animation-container">
+                <dotlottie-player src="https://lottie.host/6aebeab3-6d53-49d0-bf99-7b14e5200810/yYfuomrgtW.json"
+                    background="transparent" speed="1" style="width: 300px; height: 200px;" loop autoplay>
+                </dotlottie-player>
+            </div>
             <div class="content-description">
-                <p>Disfruta de una experiencia de entretenimiento sin igual con nuestra amplia biblioteca de contenidos:</p>     
+                <p>Disfruta de una experiencia de entretenimiento sin igual con nuestra amplia biblioteca de contenidos:
+                </p>
+
                 <ul>
                     <li>Más de 6,700 películas de todos los géneros y épocas</li>
                     <li>Más de 2,200 series de las plataformas más populares</li>
@@ -244,33 +254,108 @@
             <h2>Trabaja con Nosotros</h2>
             <div class="reseller-cards">
                 <div class="card">
-                    <h3>Reseller 1</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    <p><strong>$0000</strong></p>
+                    <h2 class="gradient">Reseller</h2>
+                    <i class="fa-regular fa-star"></i>
+                    <p>15 Créditos</p>
+                    <p><strong>$35.000 CLP - $46 USD</strong></p>
+                    <ul class="reseller">
+                        <li><strong>Panel</strong> para gestionar clientes</li>
+                        <li>Demos <strong>ilimitados</strong></li>
+                        <li>Servicio <strong>Estable</strong></li>
+                        <li>3 dispositivos <strong>simultáneos</strong></li>
+                        <li>Soporte <strong>Personalizado</strong></li>
+                        <li>Contenido <strong>Premium </strong>en en servicio </li>
+                    </ul>
                     <a href="https://wa.me/56994940840" target="_blank" class="btn">Contáctanos</a>
                 </div>
                 <div class="card">
-                    <h3>Reseller 2</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    <p><strong>$0000</strong></p>
+                    <h2 class="gradient">Reseller</h2>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <p>23 Créditos</p>
+                    <p><strong>$50.000 CLP - $60 USD</strong></p>
+                    <ul class="reseller">
+                        <li><strong>Panel</strong> para gestionar clientes</li>
+                        <li>Demos <strong>ilimitados</strong></li>
+                        <li>Servicio <strong>Estable</strong></li>
+                        <li>3 dispositivos <strong>simultáneos</strong></li>
+                        <li>Soporte <strong>Personalizado</strong></li>
+                        <li>Contenido <strong>Premium </strong>en en servicio </li>
+                    </ul>
                     <a href="https://wa.me/56994940840" target="_blank" class="btn">Contáctanos</a>
                 </div>
                 <div class="card">
-                    <h3>Reseller 3</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    <p><strong>$0000</strong></p>
+                    <h2 class="gradient">Reseller</h2>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <p>43 Créditos</p>
+                    <p><strong>$80.000 CLP - $98 USD</strong></p>
+                    <ul class="reseller">
+                        <li><strong>Panel</strong> para gestionar clientes</li>
+                        <li>Demos <strong>ilimitados</strong></li>
+                        <li>Servicio <strong>Estable</strong></li>
+                        <li>3 dispositivos <strong>simultáneos</strong></li>
+                        <li>Soporte <strong>Personalizado</strong></li>
+                        <li>Contenido <strong>Premium </strong>en en servicio </li>
+                    </ul>
                     <a href="https://wa.me/56994940840" target="_blank" class="btn">Contáctanos</a>
                 </div>
                 <div class="card">
-                    <h3>Reseller 3</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    <p><strong>$0000</strong></p>
+                    <h2 class="gradient">Reseller</h2>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <p>75 Créditos</p>
+                    <p><strong>$120.000 CLP - $132 USD</strong></p>
+                    <ul class="reseller">
+                        <li><strong>Panel</strong> para gestionar clientes</li>
+                        <li>Demos <strong>ilimitados</strong></li>
+                        <li>Servicio <strong>Estable</strong></li>
+                        <li>3 dispositivos <strong>simultáneos</strong></li>
+                        <li>Soporte <strong>Personalizado</strong></li>
+                        <li>Contenido <strong>Premium </strong>en en servicio </li>
+                    </ul>
                     <a href="https://wa.me/56994940840" target="_blank" class="btn">Contáctanos</a>
                 </div>
                 <div class="card">
-                    <h3>Reseller 3</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    <p><strong>$0000</strong></p>
+                    <h2 class="gradient">Reseller</h2>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <p>100 Créditos</p>
+                    <p><strong>$150.000 CLP - $165 USD</strong></p>
+                    <ul class="reseller">
+                        <li><strong>Panel</strong> para gestionar clientes</li>
+                        <li>Demos <strong>ilimitados</strong></li>
+                        <li>Servicio <strong>Estable</strong></li>
+                        <li>3 dispositivos <strong>simultáneos</strong></li>
+                        <li>Soporte <strong>Personalizado</strong></li>
+                        <li>Contenido <strong>Premium </strong>en en servicio </li>
+                    </ul>
+                    <a href="https://wa.me/56994940840" target="_blank" class="btn">Contáctanos</a>
+                </div>
+                <div class="card">
+                    <h2 class="gradient">Reseller</h2>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <p>200 Créditos</p>
+                    <p><strong>$230.000 CLP - $251 USD</strong></p>
+                    <ul class="reseller">
+                        <li><strong>Panel</strong> para gestionar clientes</li>
+                        <li>Demos <strong>ilimitados</strong></li>
+                        <li>Servicio <strong>Estable</strong></li>
+                        <li>3 dispositivos <strong>simultáneos</strong></li>
+                        <li>Soporte <strong>Personalizado</strong></li>
+                        <li>Contenido <strong>Premium </strong>en en servicio </li>
+                    </ul>
                     <a href="https://wa.me/56994940840" target="_blank" class="btn">Contáctanos</a>
                 </div>
             </div>

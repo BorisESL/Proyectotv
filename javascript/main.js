@@ -57,3 +57,21 @@ const initSwiper = () => {
 
 initSwiper();
 
+/********** Ocultar div del glass ********/
+
+document.addEventListener('DOMContentLoaded', function() {
+    const glassDiv = document.querySelector('.hero-content .glass');
+    
+    function handleResize() {
+        if (window.innerWidth <= 560) {
+            glassDiv.style.display = 'none';
+        } else {
+            glassDiv.style.display = 'block'; // o el valor original, como 'flex' si es necesario
+        }
+    }
+
+    // Ejecutar la función al cargar la página y en cada cambio de tamaño
+    handleResize();
+    window.addEventListener('resize', handleResize);
+});
+

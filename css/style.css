@@ -599,19 +599,71 @@ ul li {
     transition: background-color 0.3s ease;
 }
 
-.contact button:hover {
-    background-color: #ff8c5a;
-}
-
 /* Pie de página */
 .footer {
-    background: var(--color-black-transparent);
-    color: #fff;
-    padding: 15px 0;
+    background-color: #f8f9fa;
+    padding: 20px 0;
     text-align: center;
+    margin-top: auto;
 }
 
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 15px;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    border: 2px solid #333;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    color: #333;
+    text-decoration: none;
+}
+
+.social-icon i {
+    font-size: 20px;
+    position: relative;
+    z-index: 2;
+    transition: color 0.3s ease;
+}
+
+.social-icon::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    transition: height 0.8s ease;
+    z-index: 1;
+}
+
+.social-icon:hover::before {
+    height: 100%;
+}
+
+.social-icon:hover i {
+    color: #fff;
+}
+
+#facebook::before { background-color: #1877F2; }
+#instagram::before { background-color: #E4405F; }
+#whatsapp::before { background-color: #25D366; }
+
+#facebook:hover { border-color: #1877F2; }
+#instagram:hover { border-color: #E4405F; }
+#whatsapp:hover { border-color: #25D366; }
+
 .footer p {
+    color: #000000;
     margin: 0;
 }
 
@@ -669,11 +721,78 @@ ul li {
         width: 80%;
         margin: 20px auto 0;
     }
+
+    .hero-content .glass {
+        display: none;
+    }
 }
+
+
 
 @media(max-width:780px) {
 
     .movies {
         padding: 30px;
+    }
+}
+
+.swiper-container {
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.swiper-slide {
+    background-position: center;
+    background-size: cover;
+    width: 300px;
+    height: 300px;
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 768px) {
+    .swiper-container {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .swiper-slide {
+        width: 200px;
+        height: 300px;
+        margin: 0 10px;
+    }
+
+    /* Ajuste del espacio entre slides */
+    .swiper-wrapper {
+        align-items: center;
+    }
+
+    /* Mejorar la visibilidad de las imágenes */
+    .swiper-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+
+    /* Ajustar el tamaño de los botones de navegación si los tienes */
+    .swiper-button-next,
+    .swiper-button-prev {
+        width: 30px;
+        height: 30px;
+    }
+
+    /* Ajustar la paginación si la tienes */
+    .swiper-pagination-bullet {
+        width: 8px;
+        height: 8px;
+    }
+}
+
+/* Para pantallas aún más pequeñas */
+@media (max-width: 480px) {
+    .swiper-slide {
+        width: 150px;
+        height: 225px;
     }
 }

@@ -103,7 +103,7 @@ body {
 }
 
 .nav-links a:hover {
-    background: var(--color-primary);
+    background: linear-gradient(to right, #ee156c, #5705e3);
     border-radius: 5px;
 }
 
@@ -135,7 +135,7 @@ ul {
 .hero {
     background: url(../img/tv.jpg) no-repeat center center/cover;
     color: #fff;
-    height: 85vh;
+    height: 100vh;
     /* Cambiado a 100vh para cubrir toda la altura de la ventana */
     position: relative;
     display: flex;
@@ -181,7 +181,7 @@ ul {
 
 .hero h1 {
     font-size: 90px;
-    color: var(--color-primary);
+    color: var(--color-background);
     text-shadow:
         2px 2px 0px var(--color-text),
         /* Sombra derecha-abajo */
@@ -227,7 +227,7 @@ ul {
 }
 
 .hero-dis {
-    color: var(--color-primary);
+    color: var(--color-background);
     text-shadow:
         2px 2px 0px var(--color-text),
         /* Sombra derecha-abajo */
@@ -248,7 +248,7 @@ p {
 }
 
 .hero h2 {
-    color: var(--color-primary);
+    color: var(--color-background);
     font-size: 30px;
     text-shadow:
         2px 2px 0px var(--color-text),
@@ -262,7 +262,7 @@ p {
 }
 
 .hero .btn {
-    background: var(--color-primary);
+    background: linear-gradient(to right, #fe5196, #7c3aed);
     color: var(--color-background);
     padding: 10px 20px;
     text-decoration: none;
@@ -273,15 +273,13 @@ p {
 }
 
 .hero .btn:hover {
-    background: linear-gradient(to right, #fe5196, #7c3aed);
+    background: linear-gradient(to right, #ee156c, #5705e3);
 }
 
 /* Sección de Servicios */
 .services {
     margin-top: -50px;
-    /* Sube la sección de servicios ligeramente */
     padding-top: 100px;
-    /* Aumenta el padding superior para compensar */
     background-image: linear-gradient(to bottom,
             rgba(0, 0, 0, 1) 0%,
             hsl(226deg 75% 8%) 10%,
@@ -296,6 +294,7 @@ p {
             hsl(226deg 77% 20%) 100%);
     padding: 40px 0;
     text-align: center;
+    margin-bottom: 0; /* Asegura que no haya margen inferior */
 }
 
 .services h2 {
@@ -421,29 +420,69 @@ ul li {
 
 /*Sección información*/
 
+.movies-section {
+    min-height: 100vh;
+    background: linear-gradient(180deg, hsl(226deg 77% 20%), #4a0e78);
+    width: 100%;
+    padding: 40px 0;
+    margin-top: 0;
+    margin-bottom: 24px;
+}
+
 .movies {
-    padding: 50px 0 150px 0;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .movies h2 {
-    font-size: 25px;
-    color: var(--color-accent);
-    margin-bottom: 20px;
+    font-size: 36px;
+    text-align: center;
+    color: var(--color-background);
+    margin-bottom: 30px;
 }
 
+.content-description {
+    color: white;
+    padding: 20px;
+    width: 100%;
+    max-width: 900px;
+    text-align: center;
+}
+
+.content-description ul li {
+    text-align: center;
+    padding: 5px 0;
+    font-size: 16px;
+    color: var(--color-background);
+    font-family: "Anta", sans-serif;
+}
+
+
+
+
+/* Ajusta el estilo del Swiper si es necesario */
 .swiper {
     width: 100%;
+    max-width: 1000px;
+    margin-top: 50px;
 }
 
 .swiper-slide {
     background-position: center;
     background-size: cover;
     width: 250px;
+    height: 375px; /* Ajusta esto según el aspecto que desees para tus carátulas */
 }
 
 .swiper-slide img {
     display: block;
     width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 /* Sección de Trabaja con Nosotros */
@@ -618,7 +657,7 @@ ul li {
     }
 }
 
-@media(max-width:991px) {
+@media(max-width:780px) {
 
     .movies {
         padding: 30px;

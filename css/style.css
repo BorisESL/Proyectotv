@@ -14,6 +14,7 @@
     --color-background: #f7fff7;
     --color-text: #2b2d42;
     --color-black-transparent: rgba(0, 0, 0, 0.651);
+    --color-pinky: #ee156c;
 }
 
 /* Contenedor principal */
@@ -306,6 +307,8 @@ p {
     -webkit-text-fill-color: transparent;
 }
 
+
+
 .service-cards {
     display: flex;
     justify-content: center;
@@ -428,7 +431,7 @@ ul li {
 /*Sección información*/
 
 .movies-section {
-    min-height: 90vh;
+    min-height: 100vh;
     background: linear-gradient(180deg, hsl(226deg 77% 20%), #4a0e78);
     width: 100%;
     padding: 40px 0;
@@ -559,10 +562,109 @@ ul li {
     background-color: var(--color-primary);
 }
 
+.how-it-works {
+    
+    background: linear-gradient(180deg, #4a0e78, #1e0e3e);
+    padding: 60px 0;
+    color: white;
+}
+
+.how-it-works h2 {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 40px;
+    background: linear-gradient(to right, #fe5196, #7c3aed);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.devices-swiper .swiper-slide {
+    width: 120px; /* Ajusta según necesites */
+    height: 80px; /* Ajusta según necesites */
+    background: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid rgba(0, 151, 230, 0.3); /* Color del borde del glass del hero */
+    border-radius: 10px;
+    padding: 10px;
+    transition: all 0.3s ease;
+}
+
+.devices-swiper .swiper-slide:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 151, 230, 0.2);
+}
+
+.devices-swiper .swiper-slide i {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 36px;
+    color: var(--color-background); /* Iconos en blanco */
+}
+
+.devices-swiper .swiper-slide span {
+    font-size: 12px;
+    color: #fff;
+    text-align: center;
+}
+
+/* Ajustes para el contenedor del slider */
+.device-slider {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    overflow: hidden;
+    padding: 40px 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.5));
+}
+
+/* Asegúrate de que el Swiper tenga suficiente espacio entre slides */
+.devices-swiper {
+    padding: 20px 40px;
+}
+
+
+.features {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 50px;
+}
+
+.feature {
+    flex-basis: calc(20% - 40px);
+    text-align: center;
+    padding: 20px;
+    transition: transform 0.3s ease;
+    
+}
+
+.feature:hover {
+    transform: translateY(-10px);
+}
+
+.feature i {
+    font-size: 48px;
+    margin-bottom: 15px;
+    color: var(--color-pinky);
+}
+
+.feature h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: var(--color-background);
+}
+
+.feature p {
+    font-size: 14px;
+    color: var(--color-background);
+}
+
 /* Sección de Contacto */
 .contact {
     padding: 40px 0;
-    background-color: #fff;
+    background-color: #ffffff;
     text-align: center;
 }
 
@@ -745,8 +847,8 @@ ul li {
 .swiper-slide {
     background-position: center;
     background-size: cover;
-    width: 300px;
-    height: 300px;
+    width: 210px;
+    height: 350px;
 }
 
 /* Ajustes para pantallas pequeñas */
@@ -794,5 +896,17 @@ ul li {
     .swiper-slide {
         width: 150px;
         height: 225px;
+    }
+}
+
+@media (max-width: 768px) {
+    .feature {
+        flex-basis: calc(33.333% - 40px);
+    }
+}
+
+@media (max-width: 480px) {
+    .feature {
+        flex-basis: calc(50% - 40px);
     }
 }

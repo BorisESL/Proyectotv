@@ -75,3 +75,38 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('resize', handleResize);
 });
 
+/*************** Slider dispositivos ***************/
+
+document.addEventListener('DOMContentLoaded', function() {
+    new Swiper('.devices-swiper', {
+        slidesPerView: 'auto',
+        spaceBetween: 30,
+        loop: true,
+        centeredSlides: true,
+        autoplay: {
+            delay: 0,
+            disableOnInteraction: false,
+        },
+        speed: 5000,
+        freeMode: true,
+        freeModeMomentum: false,
+        breakpoints: {
+            320: {
+                slidesPerView: 3,
+                spaceBetween: 20
+            },
+            480: {
+                slidesPerView: 4,
+                spaceBetween: 30
+            },
+            640: {
+                slidesPerView: 5,
+                spaceBetween: 40
+            },
+            1024: {
+                slidesPerView: 7,
+                spaceBetween: 50
+            }
+        }
+    });
+});

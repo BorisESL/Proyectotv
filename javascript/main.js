@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const header = document.querySelector('.header');
     const glassDiv = document.querySelector('.hero-content .glass');
 
-    // Toggle menu visibility
+    // Maneja la visibilidad del menú y la clase activa
     const toggleMenu = () => {
         navLinks.classList.toggle('active');
         menuIcon.classList.toggle('active');
@@ -12,28 +12,30 @@ document.addEventListener('DOMContentLoaded', function () {
 
     menuIcon.addEventListener('click', toggleMenu);
 
-    document.addEventListener('click', (event) => {
-        if (!navLinks.contains(event.target) && !menuIcon.contains(event.target)) {
+    document.addEventListener('click', function (event) {
+        const isClickInside = navLinks.contains(event.target) || menuIcon.contains(event.target);
+        if (!isClickInside) {
             navLinks.classList.remove('active');
             menuIcon.classList.remove('active');
         }
     });
 
-    navLinks.addEventListener('click', (event) => {
+    // Cierra el menú al hacer clic en un enlace
+    navLinks.addEventListener('click', function (event) {
         if (event.target.tagName === 'A') {
             navLinks.classList.remove('active');
             menuIcon.classList.remove('active');
         }
     });
 
-    // Header background change on scroll
+    // Maneja el cambio de fondo del header al hacer scroll
     let ticking = false;
 
     const toggleHeaderScrolledClass = () => {
         header.classList.toggle('scrolled', window.scrollY > 50);
     };
 
-    const onScroll = () => {
+    window.addEventListener('scroll', () => {
         if (!ticking) {
             window.requestAnimationFrame(() => {
                 toggleHeaderScrolledClass();
@@ -41,25 +43,24 @@ document.addEventListener('DOMContentLoaded', function () {
             });
             ticking = true;
         }
-    };
+    });
+    toggleHeaderScrolledClass(); // Llamada inicial
 
-    window.addEventListener('scroll', onScroll);
-    toggleHeaderScrolledClass(); // Initial call
-
-    // Show/hide glassDiv based on window size
+    // Oculta o muestra el div glass según el tamaño de la ventana
     const handleResize = () => {
         glassDiv.style.display = window.innerWidth <= 560 ? 'none' : 'block';
     };
 
     window.addEventListener('resize', handleResize);
-    handleResize(); // Initial call
+    handleResize(); // Llamada inicial
 
-    // Initialize Swipers
+    // Inicialización de Swipers
     initSwipers();
 });
 
-// Initialize Swipers with optimized configurations
+// Inicialización de Swipers
 const initSwipers = () => {
+    // Swiper de .mySwiper
     new Swiper(".mySwiper", {
         effect: "coverflow",
         grabCursor: true,
@@ -75,6 +76,7 @@ const initSwipers = () => {
         loop: true,
     });
 
+    // Swiper de .devices-swiper
     const devicesSwiper = new Swiper('.devices-swiper', {
         slidesPerView: 'auto',
         spaceBetween: 30,
@@ -98,19 +100,20 @@ const initSwipers = () => {
         }
     });
 
+    // Pausa el autoplay en hover y lo reanuda al salir
     devicesSwiper.el.addEventListener('mouseenter', () => devicesSwiper.autoplay.stop());
     devicesSwiper.el.addEventListener('mouseleave', () => devicesSwiper.autoplay.start());
 };
 
-// Lazy loading of images with IntersectionObserver
-document.addEventListener("DOMContentLoaded", function () {
-    const lazyImages = document.querySelectorAll("img[data-src]");
+/***************Carga diferida de imagenes  ****************/
+document.addEventListener("DOMContentLoaded", function() {
+    var lazyImages = [].slice.call(document.querySelectorAll("img[data-src]"));
 
     if ("IntersectionObserver" in window) {
-        const lazyImageObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach((entry) => {
+        let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(function(entry) {
                 if (entry.isIntersecting) {
-                    const lazyImage = entry.target;
+                    let lazyImage = entry.target;
                     lazyImage.src = lazyImage.dataset.src;
                     lazyImage.removeAttribute("data-src");
                     lazyImageObserver.unobserve(lazyImage);
@@ -118,8 +121,10 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         });
 
-        lazyImages.forEach((lazyImage) => {
+        lazyImages.forEach(function(lazyImage) {
             lazyImageObserver.observe(lazyImage);
         });
+    } else {
+        // Fallback para navegadores que no soportan IntersectionObserver
     }
 });

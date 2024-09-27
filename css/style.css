@@ -134,7 +134,7 @@ ul {
 
 /* Hero/Banner Principal */
 .hero {
-    background: url(../img/tv.jpg) no-repeat center center/cover;
+    background: url(../img/tv.webp) no-repeat center center/cover;
     color: #fff;
     height: 100vh;
     /* Cambiado a 100vh para cubrir toda la altura de la ventana */

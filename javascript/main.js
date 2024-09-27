@@ -5,45 +5,60 @@ document.addEventListener('DOMContentLoaded', function () {
     const glassDiv = document.querySelector('.hero-content .glass');
 
     // Maneja la visibilidad del menú y la clase activa
-    menuIcon.addEventListener('click', function () {
+    const toggleMenu = () => {
         navLinks.classList.toggle('active');
         menuIcon.classList.toggle('active');
-    });
+    };
+
+    menuIcon.addEventListener('click', toggleMenu);
 
     document.addEventListener('click', function (event) {
-        if (!navLinks.contains(event.target) && !menuIcon.contains(event.target)) {
+        const isClickInside = navLinks.contains(event.target) || menuIcon.contains(event.target);
+        if (!isClickInside) {
             navLinks.classList.remove('active');
             menuIcon.classList.remove('active');
         }
     });
 
     // Cierra el menú al hacer clic en un enlace
-    navLinks.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', function () {
+    navLinks.addEventListener('click', function (event) {
+        if (event.target.tagName === 'A') {
             navLinks.classList.remove('active');
             menuIcon.classList.remove('active');
-        });
+        }
     });
 
     // Maneja el cambio de fondo del header al hacer scroll
+    let ticking = false;
+
     const toggleHeaderScrolledClass = () => {
         header.classList.toggle('scrolled', window.scrollY > 50);
     };
-    window.addEventListener('scroll', toggleHeaderScrolledClass);
-    toggleHeaderScrolledClass(); // Llamada inicial para establecer el estado correcto del header
+
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
+                toggleHeaderScrolledClass();
+                ticking = false;
+            });
+            ticking = true;
+        }
+    });
+    toggleHeaderScrolledClass(); // Llamada inicial
 
     // Oculta o muestra el div glass según el tamaño de la ventana
     const handleResize = () => {
         glassDiv.style.display = window.innerWidth <= 560 ? 'none' : 'block';
     };
-    handleResize();
+
     window.addEventListener('resize', handleResize);
+    handleResize(); // Llamada inicial
 
     // Inicialización de Swipers
     initSwipers();
 });
 
-// Inicialización Swipers
+// Inicialización de Swipers
 const initSwipers = () => {
     // Swiper de .mySwiper
     new Swiper(".mySwiper", {

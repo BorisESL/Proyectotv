@@ -402,20 +402,24 @@ p {
     font-family: "Anta", sans-serif;
 }
 
-button {
+.button {
     background: linear-gradient(to right, #fe5196, #7c3aed);
     color: white;
     padding: 10px 20px;
-    border: none;
+    border: none; /* No se necesita para un enlace, pero puedes dejarlo por consistencia */
     border-radius: 5px;
     cursor: pointer;
     margin-bottom: 20px;
     margin-top: 20px;
+    text-decoration: none; /* Quita el subrayado del enlace */
+    display: inline-block; /* Hace que el enlace se comporte como un botón */
+    transition: background 0.3s; /* Suaviza la transición del color de fondo */
 }
 
-button:hover {
+.button:hover {
     background: linear-gradient(to right, #ee156c, #5705e3);
 }
+
 
 ul {
     list-style-type: none;

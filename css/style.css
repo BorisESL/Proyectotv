@@ -413,6 +413,10 @@ button {
     margin-top: 20px;
 }
 
+button:hover {
+    background: linear-gradient(to right, #ee156c, #5705e3);
+}
+
 ul {
     list-style-type: none;
     padding: 0;
@@ -660,6 +664,7 @@ ul li {
 
 .feature h3 {
     font-size: 20px;
+    margin-top: 40px;
     margin-bottom: 10px;
     color: var(--color-background);
 }
@@ -802,11 +807,42 @@ ul li {
         margin: 10px 0;
     }
 
-    .card,
+    .card {
+        width: calc(50% - 20px);
+        padding: 15px;
+    }
+    
+    .card h2 {
+        font-size: 1.5em;
+    }
+    
+    .card h3 {
+        font-size: 1.2em;
+    }
+    
+    .card p, .card ul li {
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        width: calc(100% - 20px);
+    }
+}
+
+@media (max-width: 768px) {
+    .reseller-card {
+        max-width: calc(50% - 20px);
+    }
+}
+
+@media (max-width: 480px) {
     .reseller-card {
         max-width: 100%;
     }
 }
+
 
 @media (max-width: 768px) {
     .hero .container {
@@ -907,6 +943,54 @@ ul li {
     }
 }
 
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+    
+    h2 {
+        font-size: 1.8em;
+    }
+    
+    h3 {
+        font-size: 1.4em;
+    }
+    
+    p {
+        font-size: 1em;
+    }
+}
+
+/* Mejoras para el slider de dispositivos */
+.devices-swiper .swiper-slide {
+    width: 150px;
+    height: auto;
+}
+
+@media (max-width: 768px) {
+    .devices-swiper .swiper-slide {
+        width: 120px;
+    }
+}
+
+@media (max-width: 480px) {
+    .devices-swiper .swiper-slide {
+        width: 100px;
+    }
+}
+
+@media (max-width: 768px) {
+    .features {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .feature {
+        width: 100%;
+        max-width: 300px;
+        margin-bottom: 30px;
+    }
+}
 @media (max-width: 768px) {
     .feature {
         flex-basis: calc(33.333% - 40px);

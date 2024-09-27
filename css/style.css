@@ -578,23 +578,32 @@ ul li {
     -webkit-text-fill-color: transparent;
 }
 
-.devices-swiper .swiper-slide {
-    width: 120px; /* Ajusta según necesites */
-    height: 80px; /* Ajusta según necesites */
-    background: none;
+.device-slider .swiper-slide {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: 2px solid rgba(0, 151, 230, 0.3); /* Color del borde del glass del hero */
-    border-radius: 10px;
-    padding: 10px;
-    transition: all 0.3s ease;
+    height: 170px;
+    background: rgba(255, 255, 255, 0.132); /* Fondo semi-transparente */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Borde ligero */
+    border-radius: 10px; /* Bordes redondeados */
+    backdrop-filter: blur(10px); /* Desenfoque de fondo */
+    -webkit-backdrop-filter: blur(10px); /* Soporte para Safari */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+.device-slider .swiper-slide img {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+    margin-bottom: 10px;
 }
 
 .devices-swiper .swiper-slide:hover {
     transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0, 151, 230, 0.2);
+    box-shadow: 0 5px 15px rgba(8, 140, 210, 0.781);
 }
 
 .devices-swiper .swiper-slide i {
@@ -604,9 +613,8 @@ ul li {
     color: var(--color-background); /* Iconos en blanco */
 }
 
-.devices-swiper .swiper-slide span {
-    font-size: 12px;
-    color: #fff;
+.device-slider .swiper-slide span {
+    font-size: 14px;
     text-align: center;
 }
 

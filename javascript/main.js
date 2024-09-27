@@ -76,9 +76,8 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 /*************** Slider dispositivos ***************/
-
 document.addEventListener('DOMContentLoaded', function() {
-    new Swiper('.devices-swiper', {
+    const swiper = new Swiper('.devices-swiper', {
         slidesPerView: 'auto',
         spaceBetween: 30,
         loop: true,
@@ -88,8 +87,11 @@ document.addEventListener('DOMContentLoaded', function() {
             disableOnInteraction: false,
         },
         speed: 5000,
-        freeMode: true,
-        freeModeMomentum: false,
+        freeMode: {
+            enabled: true,
+            momentum: false,
+        },
+        allowTouchMove: false,
         breakpoints: {
             320: {
                 slidesPerView: 3,
@@ -109,4 +111,16 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     });
+
+    // Duplicar los slides para un efecto de loop infinito
+    swiper.el.addEventListener('mouseenter', function() {
+        swiper.autoplay.stop();
+    });
+
+    swiper.el.addEventListener('mouseleave', function() {
+        swiper.autoplay.start();
+    });
 });
+
+
+

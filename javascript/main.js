@@ -2,20 +2,22 @@ document.addEventListener('DOMContentLoaded', function () {
     const menuIcon = document.querySelector('.menu-icon');
     const navLinks = document.querySelector('.nav-links');
     const header = document.querySelector('.header');
+    const glassDiv = document.querySelector('.hero-content .glass');
 
+    // Maneja la visibilidad del menú y la clase activa
     menuIcon.addEventListener('click', function () {
         navLinks.classList.toggle('active');
         menuIcon.classList.toggle('active');
     });
 
     document.addEventListener('click', function (event) {
-        const isClickInsideMenu = navLinks.contains(event.target) || menuIcon.contains(event.target);
-        if (!isClickInsideMenu && navLinks.classList.contains('active')) {
+        if (!navLinks.contains(event.target) && !menuIcon.contains(event.target)) {
             navLinks.classList.remove('active');
             menuIcon.classList.remove('active');
         }
     });
 
+    // Cierra el menú al hacer clic en un enlace
     navLinks.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', function () {
             navLinks.classList.remove('active');
@@ -24,22 +26,27 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // Maneja el cambio de fondo del header al hacer scroll
-    window.addEventListener('scroll', function () {
-        if (window.scrollY > 50) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
-    });
+    const toggleHeaderScrolledClass = () => {
+        header.classList.toggle('scrolled', window.scrollY > 50);
+    };
+    window.addEventListener('scroll', toggleHeaderScrolledClass);
+    toggleHeaderScrolledClass(); // Llamada inicial para establecer el estado correcto del header
 
-    // Llamada inicial para establecer el estado correcto del header
-    if (window.scrollY > 50) {
-        header.classList.add('scrolled');
-    }
+    // Oculta o muestra el div glass según el tamaño de la ventana
+    const handleResize = () => {
+        glassDiv.style.display = window.innerWidth <= 560 ? 'none' : 'block';
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+
+    // Inicialización de Swipers
+    initSwipers();
 });
 
-const initSwiper = () => {
-    const swiper = new Swiper(".mySwiper", {
+// Inicialización Swipers
+const initSwipers = () => {
+    // Swiper de .mySwiper
+    new Swiper(".mySwiper", {
         effect: "coverflow",
         grabCursor: true,
         centeredSlides: true,
@@ -53,31 +60,9 @@ const initSwiper = () => {
         },
         loop: true,
     });
-}
 
-initSwiper();
-
-/********** Ocultar div del glass ********/
-
-document.addEventListener('DOMContentLoaded', function() {
-    const glassDiv = document.querySelector('.hero-content .glass');
-    
-    function handleResize() {
-        if (window.innerWidth <= 560) {
-            glassDiv.style.display = 'none';
-        } else {
-            glassDiv.style.display = 'block'; // o el valor original, como 'flex' si es necesario
-        }
-    }
-
-    // Ejecutar la función al cargar la página y en cada cambio de tamaño
-    handleResize();
-    window.addEventListener('resize', handleResize);
-});
-
-/*************** Slider dispositivos ***************/
-document.addEventListener('DOMContentLoaded', function() {
-    const swiper = new Swiper('.devices-swiper', {
+    // Swiper de .devices-swiper
+    const devicesSwiper = new Swiper('.devices-swiper', {
         slidesPerView: 'auto',
         spaceBetween: 30,
         loop: true,
@@ -93,34 +78,14 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         allowTouchMove: false,
         breakpoints: {
-            320: {
-                slidesPerView: 3,
-                spaceBetween: 20
-            },
-            480: {
-                slidesPerView: 4,
-                spaceBetween: 30
-            },
-            640: {
-                slidesPerView: 5,
-                spaceBetween: 40
-            },
-            1024: {
-                slidesPerView: 7,
-                spaceBetween: 50
-            }
+            320: { slidesPerView: 3, spaceBetween: 20 },
+            480: { slidesPerView: 4, spaceBetween: 30 },
+            640: { slidesPerView: 5, spaceBetween: 40 },
+            1024: { slidesPerView: 7, spaceBetween: 50 }
         }
     });
 
-    // Duplicar los slides para un efecto de loop infinito
-    swiper.el.addEventListener('mouseenter', function() {
-        swiper.autoplay.stop();
-    });
-
-    swiper.el.addEventListener('mouseleave', function() {
-        swiper.autoplay.start();
-    });
-});
-
-
-
+    // Pausa el autoplay en hover y lo reanuda al salir
+    devicesSwiper.el.addEventListener('mouseenter', () => devicesSwiper.autoplay.stop());
+    devicesSwiper.el.addEventListener('mouseleave', () => devicesSwiper.autoplay.start());
+};

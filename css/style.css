@@ -600,7 +600,7 @@ ul li {
 
 .device-slider .swiper-slide img {
     width: 70px;
-    height: 70px;
+    height: 90px;
     object-fit: contain;
     margin-bottom: 10px;
 }
@@ -614,12 +614,12 @@ ul li {
     margin-top: 10px;
     margin-bottom: 10px;
     font-size: 36px;
-    color: var(--color-background); /* Iconos en blanco */
 }
 
 .device-slider .swiper-slide span {
     font-size: 14px;
     text-align: center;
+    margin-bottom: 10px;
 }
 
 /* Ajustes para el contenedor del slider */
@@ -634,6 +634,7 @@ ul li {
 /* Asegúrate de que el Swiper tenga suficiente espacio entre slides */
 .devices-swiper {
     padding: 20px 40px;
+    overflow: hidden; 
 }
 
 

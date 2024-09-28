@@ -59,24 +59,26 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 // Inicialización de Swipers
-const initSwipers = () => {
-    // Swiper de .mySwiper
-    new Swiper(".mySwiper", {
-        effect: "coverflow",
-        grabCursor: true,
-        centeredSlides: true,
-        slidesPerView: "auto",
-        coverflowEffect: {
-            rotate: 15,
-            stretch: 0,
-            depth: 300,
-            modifier: 1,
-            slideShadows: true,
-        },
-        loop: true,
-    });
+function initSwipers() {
+    // Swiper de .mySwiper (si existe, si no, puedes eliminar esta parte)
+    if (document.querySelector('.mySwiper')) {
+        new Swiper(".mySwiper", {
+            effect: "coverflow",
+            grabCursor: true,
+            centeredSlides: true,
+            slidesPerView: "auto",
+            coverflowEffect: {
+                rotate: 15,
+                stretch: 0,
+                depth: 300,
+                modifier: 1,
+                slideShadows: true,
+            },
+            loop: true,
+        });
+    }
 
-    // Swiper de .devices-swiper
+    // Swiper de dispositivos
     const devicesSwiper = new Swiper('.devices-swiper', {
         slidesPerView: 'auto',
         spaceBetween: 30,
@@ -87,11 +89,6 @@ const initSwipers = () => {
             disableOnInteraction: false,
         },
         speed: 5000,
-        freeMode: {
-            enabled: true,
-            momentum: false,
-        },
-        allowTouchMove: false,
         breakpoints: {
             320: { slidesPerView: 3, spaceBetween: 20 },
             480: { slidesPerView: 4, spaceBetween: 30 },
@@ -100,10 +97,28 @@ const initSwipers = () => {
         }
     });
 
-    // Pausa el autoplay en hover y lo reanuda al salir
-    devicesSwiper.el.addEventListener('mouseenter', () => devicesSwiper.autoplay.stop());
-    devicesSwiper.el.addEventListener('mouseleave', () => devicesSwiper.autoplay.start());
-};
+    const swiperEl = document.querySelector('.devices-swiper');
+
+    if (swiperEl) {
+        // Función para pausar el swiper
+        function pauseSwiper() {
+            devicesSwiper.autoplay.stop();
+        }
+
+        // Función para reanudar el swiper
+        function resumeSwiper() {
+            devicesSwiper.autoplay.start();
+        }
+
+        // Eventos para desktop
+        swiperEl.addEventListener('mouseenter', pauseSwiper);
+        swiperEl.addEventListener('mouseleave', resumeSwiper);
+
+        // Eventos para mobile
+        swiperEl.addEventListener('touchstart', pauseSwiper, { passive: true });
+        swiperEl.addEventListener('touchend', resumeSwiper);
+    }
+}
 
 /***************Carga diferida de imagenes  ****************/
 document.addEventListener("DOMContentLoaded", function() {

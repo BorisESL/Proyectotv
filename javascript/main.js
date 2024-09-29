@@ -1,67 +1,26 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const menuIcon = document.querySelector('.menu-icon');
-    const navLinks = document.querySelector('.nav-links');
-    const header = document.querySelector('.header');
-    const glassDiv = document.querySelector('.hero-content .glass');
+// Funciones de utilidad
+const $ = (selector) => document.querySelector(selector);
+const $$ = (selector) => document.querySelectorAll(selector);
 
-    // Maneja la visibilidad del menú y la clase activa
-    const toggleMenu = () => {
-        navLinks.classList.toggle('active');
-        menuIcon.classList.toggle('active');
-    };
+// Función para manejar la visibilidad del menú
+const toggleMenu = () => {
+    $('.nav-links').classList.toggle('active');
+    $('.menu-icon').classList.toggle('active');
+};
 
-    menuIcon.addEventListener('click', toggleMenu);
+// Función para manejar el cambio de fondo del header
+const toggleHeaderScrolledClass = () => {
+    $('.header').classList.toggle('scrolled', window.scrollY > 50);
+};
 
-    document.addEventListener('click', function (event) {
-        const isClickInside = navLinks.contains(event.target) || menuIcon.contains(event.target);
-        if (!isClickInside) {
-            navLinks.classList.remove('active');
-            menuIcon.classList.remove('active');
-        }
-    });
-
-    // Cierra el menú al hacer clic en un enlace
-    navLinks.addEventListener('click', function (event) {
-        if (event.target.tagName === 'A') {
-            navLinks.classList.remove('active');
-            menuIcon.classList.remove('active');
-        }
-    });
-
-    // Maneja el cambio de fondo del header al hacer scroll
-    let ticking = false;
-
-    const toggleHeaderScrolledClass = () => {
-        header.classList.toggle('scrolled', window.scrollY > 50);
-    };
-
-    window.addEventListener('scroll', () => {
-        if (!ticking) {
-            window.requestAnimationFrame(() => {
-                toggleHeaderScrolledClass();
-                ticking = false;
-            });
-            ticking = true;
-        }
-    });
-    toggleHeaderScrolledClass(); // Llamada inicial
-
-    // Oculta o muestra el div glass según el tamaño de la ventana
-    const handleResize = () => {
-        glassDiv.style.display = window.innerWidth <= 560 ? 'none' : 'block';
-    };
-
-    window.addEventListener('resize', handleResize);
-    handleResize(); // Llamada inicial
-
-    // Inicialización de Swipers
-    initSwipers();
-});
+// Función para manejar el tamaño de la ventana
+const handleResize = () => {
+    $('.hero-content .glass').style.display = window.innerWidth <= 560 ? 'none' : 'block';
+};
 
 // Inicialización de Swipers
-function initSwipers() {
-    // Swiper de .mySwiper (si existe, si no, puedes eliminar esta parte)
-    if (document.querySelector('.mySwiper')) {
+const initSwipers = () => {
+    if ($('.mySwiper')) {
         new Swiper(".mySwiper", {
             effect: "coverflow",
             grabCursor: true,
@@ -78,7 +37,6 @@ function initSwipers() {
         });
     }
 
-    // Swiper de dispositivos
     const devicesSwiper = new Swiper('.devices-swiper', {
         slidesPerView: 'auto',
         spaceBetween: 30,
@@ -97,36 +55,22 @@ function initSwipers() {
         }
     });
 
-    const swiperEl = document.querySelector('.devices-swiper');
-
+    const swiperEl = $('.devices-swiper');
     if (swiperEl) {
-        // Función para pausar el swiper
-        function pauseSwiper() {
-            devicesSwiper.autoplay.stop();
-        }
-
-        // Función para reanudar el swiper
-        function resumeSwiper() {
-            devicesSwiper.autoplay.start();
-        }
-
-        // Eventos para desktop
-        swiperEl.addEventListener('mouseenter', pauseSwiper);
-        swiperEl.addEventListener('mouseleave', resumeSwiper);
-
-        // Eventos para mobile
-        swiperEl.addEventListener('touchstart', pauseSwiper, { passive: true });
-        swiperEl.addEventListener('touchend', resumeSwiper);
+        swiperEl.addEventListener('mouseenter', () => devicesSwiper.autoplay.stop());
+        swiperEl.addEventListener('mouseleave', () => devicesSwiper.autoplay.start());
+        swiperEl.addEventListener('touchstart', () => devicesSwiper.autoplay.stop(), { passive: true });
+        swiperEl.addEventListener('touchend', () => devicesSwiper.autoplay.start());
     }
-}
+};
 
-/***************Carga diferida de imagenes  ****************/
-document.addEventListener("DOMContentLoaded", function() {
-    var lazyImages = [].slice.call(document.querySelectorAll("img[data-src]"));
-
+// Carga diferida de imágenes
+const lazyLoadImages = () => {
+    const lazyImages = [...$$("img[data-src]")];
+    
     if ("IntersectionObserver" in window) {
-        let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
-            entries.forEach(function(entry) {
+        let lazyImageObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
                 if (entry.isIntersecting) {
                     let lazyImage = entry.target;
                     lazyImage.src = lazyImage.dataset.src;
@@ -136,10 +80,52 @@ document.addEventListener("DOMContentLoaded", function() {
             });
         });
 
-        lazyImages.forEach(function(lazyImage) {
+        lazyImages.forEach((lazyImage) => {
             lazyImageObserver.observe(lazyImage);
         });
     } else {
         // Fallback para navegadores que no soportan IntersectionObserver
+        lazyImages.forEach((lazyImage) => {
+            lazyImage.src = lazyImage.dataset.src;
+            lazyImage.removeAttribute("data-src");
+        });
     }
+};
+
+// Inicialización
+document.addEventListener('DOMContentLoaded', () => {
+    $('.menu-icon').addEventListener('click', toggleMenu);
+
+    document.addEventListener('click', (event) => {
+        const isClickInside = $('.nav-links').contains(event.target) || $('.menu-icon').contains(event.target);
+        if (!isClickInside) {
+            $('.nav-links').classList.remove('active');
+            $('.menu-icon').classList.remove('active');
+        }
+    });
+
+    $('.nav-links').addEventListener('click', (event) => {
+        if (event.target.tagName === 'A') {
+            $('.nav-links').classList.remove('active');
+            $('.menu-icon').classList.remove('active');
+        }
+    });
+
+    let scrollTicking = false;
+    window.addEventListener('scroll', () => {
+        if (!scrollTicking) {
+            window.requestAnimationFrame(() => {
+                toggleHeaderScrolledClass();
+                scrollTicking = false;
+            });
+            scrollTicking = true;
+        }
+    });
+    toggleHeaderScrolledClass(); // Llamada inicial
+
+    window.addEventListener('resize', handleResize);
+    handleResize(); // Llamada inicial
+
+    initSwipers();
+    lazyLoadImages();
 });

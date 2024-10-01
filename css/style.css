@@ -505,7 +505,7 @@ ul li {
 /* Sección de Trabaja con Nosotros */
 .work-with-us {
     padding: 40px 0;
-    background:linear-gradient(360deg, hsl(265, 57%, 21%), #4a0e78); #0A192F;
+    background:linear-gradient(360deg, hsl(265, 57%, 21%), #4a0e78); 
     text-align: center;
 }
 

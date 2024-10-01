@@ -444,7 +444,7 @@ ul li {
     width: 100%;
     padding: 40px 0;
     margin-top: 0;
-    margin-bottom: 24px;
+    margin-bottom: 0;
 }
 
 .movies {
@@ -479,14 +479,6 @@ ul li {
     font-family: "Anta", sans-serif;
 }
 
-.information {
-    display: flex;                     /* Usa flexbox para alinear elementos */
-    justify-content: space-between;   /* Espacio entre ambos elementos */
-    align-items: center;              /* Centra verticalmente */
-    gap: 20px;                        /* Espacio entre la animación y el texto */
-   
-}
-
 
 /* Ajusta el estilo del Swiper si es necesario */
 .swiper {
@@ -513,7 +505,7 @@ ul li {
 /* Sección de Trabaja con Nosotros */
 .work-with-us {
     padding: 40px 0;
-    background-color: var(--color-background);
+    background:linear-gradient(360deg, hsl(265, 57%, 21%), #4a0e78); #0A192F;
     text-align: center;
 }
 
@@ -572,7 +564,7 @@ ul li {
 
 .how-it-works {
     
-    background: linear-gradient(180deg, #4a0e78, #1e0e3e);
+    background: linear-gradient(360deg, #4a0e78, hsl(265, 57%, 21%));
     padding: 60px 0;
     color: white;
 }
